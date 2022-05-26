@@ -1,7 +1,7 @@
 # MyCodes
 
 #### Description
-保存自己日常代码仓库
+这里存放我写的代码
 
 #### Software Architecture
 Software architecture description

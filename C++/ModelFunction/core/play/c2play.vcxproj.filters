@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{041b72d7-882d-49f7-9880-334120d6872c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="decoder_ff.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="decoder.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="c2play.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="decoderlistener.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="play_stream.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="render.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="render_sdl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="renderlistener.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="render_d3d.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="c2play.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="c2play.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="decoder.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="decoder_ff.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="play_stream.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="render.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="render_sdl.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="render_d3d.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,30 @@
+c2sdk.o: c2sdk.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+c2types_json.o: c2types_json.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+cu.o: cu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+http_cu.o: http_cu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+realstream.o: realstream.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+preview.o: preview.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+streamgr.o: streamgr.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+http_realstream.o: http_realstream.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+recordstream.o: recordstream.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+playback.o: playback.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+http_playback.o: http_playback.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+http_download.o: http_download.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/client/player/player.o: /home/shl/workspace/git/media-c2/core/client/player/player.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/client/player/hik_player.o: /home/shl/workspace/git/media-c2/core/client/player/hik_player.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/client/player/c2_player.o: /home/shl/workspace/git/media-c2/core/client/player/c2_player.cpp
+	g++  $(CFLAGS) -c -o $@ $^

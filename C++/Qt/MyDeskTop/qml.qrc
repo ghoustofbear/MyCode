@@ -1,0 +1,50 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>desktop/desktop.qml</file>
+        <file>desktop/Clock.qml</file>
+        <file>desktop/winstyleicons/3dcube_app.png</file>
+        <file>desktop/winstyleicons/aircondition_app.png</file>
+        <file>desktop/winstyleicons/alarm_app.png</file>
+        <file>desktop/winstyleicons/album_app.png</file>
+        <file>desktop/winstyleicons/calc_app.png</file>
+        <file>desktop/winstyleicons/camera_app.png</file>
+        <file>desktop/winstyleicons/file_app.png</file>
+        <file>desktop/winstyleicons/iotest_app.png</file>
+        <file>desktop/winstyleicons/media_app.png</file>
+        <file>desktop/winstyleicons/music_app_icon.png</file>
+        <file>desktop/winstyleicons/radio_app.png</file>
+        <file>desktop/winstyleicons/sensor_app.png</file>
+        <file>desktop/winstyleicons/settings_app.png</file>
+        <file>desktop/winstyleicons/system_app.png</file>
+        <file>desktop/winstyleicons/tcp_c.png</file>
+        <file>desktop/winstyleicons/tcp_s.png</file>
+        <file>desktop/winstyleicons/udpchat_app.png</file>
+        <file>desktop/winstyleicons/weather_app_cloudy.png</file>
+        <file>desktop/winstyleicons/weather_app_fine.png</file>
+        <file>desktop/winstyleicons/weather_app_rain.png</file>
+        <file>desktop/winstyleicons/weather_app_snow.png</file>
+        <file>desktop/winstyleicons/wirless_app.png</file>
+        <file>desktop/androidstyleicons/aflex.png</file>
+        <file>desktop/androidstyleicons/album.png</file>
+        <file>desktop/androidstyleicons/apps.png</file>
+        <file>desktop/androidstyleicons/calculator.png</file>
+        <file>desktop/androidstyleicons/camera.png</file>
+        <file>desktop/androidstyleicons/cd.png</file>
+        <file>desktop/androidstyleicons/cube.png</file>
+        <file>desktop/androidstyleicons/fileview.png</file>
+        <file>desktop/androidstyleicons/iotest.png</file>
+        <file>desktop/androidstyleicons/music.png</file>
+        <file>desktop/androidstyleicons/player.png</file>
+        <file>desktop/androidstyleicons/radio.png</file>
+        <file>desktop/androidstyleicons/sensor.png</file>
+        <file>desktop/androidstyleicons/system.png</file>
+        <file>desktop/androidstyleicons/tcpclient.png</file>
+        <file>desktop/androidstyleicons/tcpserver.png</file>
+        <file>desktop/androidstyleicons/time.png</file>
+        <file>desktop/androidstyleicons/udpchat.png</file>
+        <file>desktop/androidstyleicons/weather.png</file>
+        <file>desktop/androidstyleicons/wireless.png</file>
+    </qresource>
+    <qresource prefix="/new/desktop"/>
+</RCC>

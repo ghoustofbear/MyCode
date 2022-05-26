@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bitoperation.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="concurrency.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="def.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="frame.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="md5.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="mempool.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="socket.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="stream.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="sys.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="thread.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="tls_error.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="type.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="wsocket.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="wsys.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="tmap.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="tmultimap.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="tqueue.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="tvector.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="tlist.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="initializer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="concurrency.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="mempool.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="socket.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="stream.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="sys.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="thread.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="tls_error.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="utility.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="wsocket.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="wsys.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="initializer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="c2com.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

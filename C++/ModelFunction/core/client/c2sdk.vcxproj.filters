@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="player">
+      <UniqueIdentifier>{915f6ccb-f1d2-4712-a5d6-7fd112f14088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sdk">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="c2sdk.h">
+      <Filter>sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="player\hik_player.h">
+      <Filter>player</Filter>
+    </ClInclude>
+    <ClInclude Include="player\player.h">
+      <Filter>player</Filter>
+    </ClInclude>
+    <ClInclude Include="player\c2_player.h">
+      <Filter>player</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="c2sdk.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="c2sdk.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="cu.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="http_cu.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="c2types_json.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="preview.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="realstream.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="streamgr.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="http_realstream.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="player\hik_player.cpp">
+      <Filter>player</Filter>
+    </ClCompile>
+    <ClCompile Include="player\player.cpp">
+      <Filter>player</Filter>
+    </ClCompile>
+    <ClCompile Include="http_playback.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="recordstream.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="http_download.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="playback.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="player\c2_player.cpp">
+      <Filter>player</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

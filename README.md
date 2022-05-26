@@ -1,37 +1,43 @@
 # MyCodes
 
-#### 介绍
-保存自己日常代码仓库
+## 介绍
+编写的常见代码及其常见规律总结
 
-#### 软件架构
-软件架构说明
+## C++
 
+### 1.基础知识及其常见问题
 
-#### 安装教程
+### 2.标准模板库
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+* [STL概述](C++/Others/STL概述.md)
+* [Vector](C++/Others/Vector.md)
+* [List](C++/Others/List.md)
+* [map](C++/Others/map.md)
+* [unordered_map](C++/Others/unordered_map.md)
+* [stack](C++/Others/stack.md)
+* [queue](C++/Others/queue.md)
+* [deque](C++/Others/deque.md)
+* [set](C++/Others/set.md)
+* [unorded_set](C++/Others/unordered_set.md)
 
-#### 使用说明
+## Leetcode
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+####     [指南](Leetcode\Tutor.md)
 
-#### 参与贡献
+####     动态规划
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+* [509斐波那契数](Leetcode\Dynamic_Programming\0509.Fibonacci Number\0509Fibonacci Number.md)
+* [70爬楼梯](Leetcode\Dynamic_Programming\0070.Climbing Stairs\0070ClimbingStairs.md)
 
+#### 滑动窗口
 
-#### 特技
+* [3.无重复字符的最长子串](./Leetcode\HumbleNumbers\03_longest-substring-without-repeating-characters\3无重复字符的最长子串.md)
+* [30串联所有单词的子串](Leetcode\HumbleNumbers\30_substring-with-concatenation-of-all-words\30串联所有单词的子串.md)
+* [187重复的DNA序列](Leetcode\HumbleNumbers\187repeated-dna-sequences\187重复的DNA序列.md)
+* [209长度最小的子数组II](Leetcode\HumbleNumbers\209minimum-size-subarray-sum\209长度最小的子数组.md)
+* [219存在重复数组||](Leetcode\HumbleNumbers\0219Contains Duplicate II\219Contains_Duplicate _II.md)
+* [220存在重复数组III](Leetcode\HumbleNumbers\220Contains Duplicate III\220Contains Duplicate III.md)
+* [239滑动窗口最大值](Leetcode\HumbleNumbers\239_Sliding_Window_Maximum\239_Sliding_Window_Maximum.md)
+* [76最小覆盖子串](Leetcode\HumbleNumbers\76_Minimum_Window_Substring\76_Minimum_Window_Substring.md)
+* [424替换后的最长重复字符](Leetcode\HumbleNumbers\424_Longest_Repeating_Character_Replacement\424_Longest_Repeating_Character_Replacement.md)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)

@@ -1,0 +1,106 @@
+/home/shl/workspace/git/media-c2/core/server/server.o: /home/shl/workspace/git/media-c2/core/server/server.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/session.o: /home/shl/workspace/git/media-c2/core/server/session.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/sevent.o: /home/shl/workspace/git/media-c2/core/server/sevent.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/bufferev.o: /home/shl/workspace/git/media-c2/core/server/bufferev.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/servmgr.o: /home/shl/workspace/git/media-c2/core/server/servmgr.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/system.o: /home/shl/workspace/git/media-c2/core/server/system.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/private/privserver.o: /home/shl/workspace/git/media-c2/core/server/private/privserver.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/private/servent.o: /home/shl/workspace/git/media-c2/core/server/private/servent.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/private/client.o: /home/shl/workspace/git/media-c2/core/server/private/client.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/private/climgr.o: /home/shl/workspace/git/media-c2/core/server/private/climgr.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/private/ssession.o: /home/shl/workspace/git/media-c2/core/server/private/ssession.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/private/rsession.o: /home/shl/workspace/git/media-c2/core/server/private/rsession.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/gsession.o: /home/shl/workspace/git/media-c2/core/server/gw/gsession.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/gsessmgr.o: /home/shl/workspace/git/media-c2/core/server/gw/gsessmgr.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/supermgr.o: /home/shl/workspace/git/media-c2/core/server/gw/supermgr.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/superior.o: /home/shl/workspace/git/media-c2/core/server/gw/superior.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/hs_superior.o: /home/shl/workspace/git/media-c2/core/server/gw/hs_superior.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/platform.o: /home/shl/workspace/git/media-c2/core/server/gw/platform.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/sipua.o: /home/shl/workspace/git/media-c2/core/server/gw/sipua.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/hs_sipua.o: /home/shl/workspace/git/media-c2/core/server/gw/hs_sipua.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/sipcall.o: /home/shl/workspace/git/media-c2/core/server/gw/sipcall.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/rtparser.o: /home/shl/workspace/git/media-c2/core/server/gw/rtparser.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/rtpsession.o: /home/shl/workspace/git/media-c2/core/server/gw/rtpsession.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/rtspsession.o: /home/shl/workspace/git/media-c2/core/server/gw/rtspsession.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/rtspserver.o: /home/shl/workspace/git/media-c2/core/server/gw/rtspserver.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/gw/hs_rtspsession.o: /home/shl/workspace/git/media-c2/core/server/gw/hs_rtspsession.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/pu.o: /home/shl/workspace/git/media-c2/core/server/pu/pu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/gu.o: /home/shl/workspace/git/media-c2/core/server/pu/gu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/pumgr.o: /home/shl/workspace/git/media-c2/core/server/pu/pumgr.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/putree.o: /home/shl/workspace/git/media-c2/core/server/pu/putree.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/gumgr.o: /home/shl/workspace/git/media-c2/core/server/pu/gumgr.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/hik_pu.o: /home/shl/workspace/git/media-c2/core/server/pu/hik_pu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/hik_gu.o: /home/shl/workspace/git/media-c2/core/server/pu/hik_gu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/hik_record_gu.o: /home/shl/workspace/git/media-c2/core/server/pu/hik_record_gu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/gw_pu.o: /home/shl/workspace/git/media-c2/core/server/pu/gw_pu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/gw_record_gu.o: /home/shl/workspace/git/media-c2/core/server/pu/gw_record_gu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/hs_pu.o: /home/shl/workspace/git/media-c2/core/server/pu/hs_pu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/msv_pu.o: /home/shl/workspace/git/media-c2/core/server/pu/msv_pu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/pu/msv_gu.o: /home/shl/workspace/git/media-c2/core/server/pu/msv_gu.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/auth/user.o: /home/shl/workspace/git/media-c2/core/server/auth/user.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/auth/usermgr.o: /home/shl/workspace/git/media-c2/core/server/auth/usermgr.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/auth/group.o: /home/shl/workspace/git/media-c2/core/server/auth/group.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/auth/groupmgr.o: /home/shl/workspace/git/media-c2/core/server/auth/groupmgr.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/config/observable.o: /home/shl/workspace/git/media-c2/core/server/config/observable.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/config/cfg.o: /home/shl/workspace/git/media-c2/core/server/config/cfg.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/config/sqlitedb.o: /home/shl/workspace/git/media-c2/core/server/config/sqlitedb.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/config/cfg_system.o: /home/shl/workspace/git/media-c2/core/server/config/cfg_system.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/config/cfg_platform.o: /home/shl/workspace/git/media-c2/core/server/config/cfg_platform.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/config/cfg_user.o: /home/shl/workspace/git/media-c2/core/server/config/cfg_user.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/config/cfg_group.o: /home/shl/workspace/git/media-c2/core/server/config/cfg_group.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/config/cfg_user_group.o: /home/shl/workspace/git/media-c2/core/server/config/cfg_user_group.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/config/cfg_device.o: /home/shl/workspace/git/media-c2/core/server/config/cfg_device.cpp
+	g++  $(CFLAGS) -c -o $@ $^
+/home/shl/workspace/git/media-c2/core/server/config/view_user_group.o: /home/shl/workspace/git/media-c2/core/server/config/view_user_group.cpp
+	g++  $(CFLAGS) -c -o $@ $^
