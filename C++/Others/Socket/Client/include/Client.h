@@ -19,18 +19,14 @@ class Client
 public:
     Client(/* args */);
     ~Client();
-   
-   
-    bool Setup(std::string ip, int port,int protocolType);
-    bool Send(std::string data);
-    std::string receive(int size = receive_Max_Size);
-    std::string read();
-    void exit();
+   bool start();
 private:
     int m_socketfd;
     std::string m_address;
     int m_port;
-    struct sockaddr_in m_server;
+    struct sockaddr_in m_ClientAdress;
+    char* m_sendBuf;
+    char* m_recvBuf;
 };
 
 

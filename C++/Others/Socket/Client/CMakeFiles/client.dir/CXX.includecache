@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lx/MyCodes/my-codes/C++/Others/Socket/Client/Client.cpp
+Client.h
+/home/lx/MyCodes/my-codes/C++/Others/Socket/Client/Client.h
+
+/home/lx/MyCodes/my-codes/C++/Others/Socket/Client/main.cpp
+Client.h
+/home/lx/MyCodes/my-codes/C++/Others/Socket/Client/Client.h
+iostream
+-
+signal.h
+-
+
+include/Client.h
+iostream
+-
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+netdb.h
+-
+netdb.h
+-
+vector
+-
+

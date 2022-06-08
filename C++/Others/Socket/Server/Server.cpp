@@ -1,235 +1,123 @@
-#include"Server.h"
+#include<Server.h>
+#include<iostream>
 Server::Server(/* args */)
 {
-     Server::m_last_closed=-1;
-     Server::m_isonline=false;
-     
+    m_socketfd=-1;
+    m_sendBuf=new char[1024*1024*10];
+    m_recvBuf=new char[1024*1024*10];
+    memset(m_recvBuf,0,sizeof(m_recvBuf));
+    memset(m_sendBuf,0,sizeof(m_sendBuf));
 }
 
 Server::~Server()
 {
-    for(int i=0;i<newSocket.size();i++)
-    {
-        detach(i);
-    }
-    closed();
-}
-void  Server::AcceptTask(descript_socket argv)
-{
-    try
-    {
-        /* code */
-
-        int n=-2;
-        struct descript_socket desc = (struct descript_socket) argv;
-        
-        std::  cerr << "服务端open client[ id:"<< desc.id <<" ip:"<< desc.ip <<" socket:"<< desc.socketfd<<" send:"<< desc.enable_message_runtime <<" ]" << std::endl;
-        while(1)
-        {
-            n = recv(desc.socketfd, msg, MAXPACKETSIZE, 0);
-            if(n != -1) 
-            {
-                if(n==0)
-                {
-                    Server::m_isonline=true;
-                    
-                    std::cerr << "服务端close client[ id:"<< desc.id <<" ip:"<< desc.ip <<" socket:"<< desc.socketfd<<" ]" << std::endl;
-                    Server::m_last_closed = desc.id;
-                    close(desc.socketfd);
-
-                    int id = desc.id;
-                    auto new_end = std::remove_if(newSocket.begin(), newSocket.end(),
-                                                        [id](descript_socket device)
-                                                            { return device.id == id; });
-                    newSocket.erase(new_end, newSocket.end());
-
-                    if(m_clientNum>0) 
-                    {
-                        m_clientNum--;
-                    }
-                    break;
-                }
-                msg[n]=0;
-                desc.message = std::string(msg);
-                std::lock_guard<std::mutex> guard(m_mutex);
-                Message.emplace_back( desc );
-            }
-            usleep(600);
-        }
-     
-        std::cerr << "exit thread: " << std::this_thread::get_id() << std::endl;
-       
-
-        
-
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-       
-    }
-    
-   
-}
-
-bool Server::SetUp(std::string ip,int port,int protocolType)
-{
-    try
-    {
-        
-            /* code */
-            //1.创建一个socket
-        int m_sockfd=socket(AF_INET,(IPPROTO_TCP == protocolType)? SOCK_STREAM : SOCK_DGRAM,protocolType);
-
-        if(m_sockfd<0)
-        {
-            std::cerr<<"服务端socket create fail"<<std::endl;
-            return false;
-        }
-        else
-        {
-            std::cerr<<"服务端socket创建"<<std::endl;
-        }
-        //2.准备通讯地址（必须是服务器的）的IP
-        memset(&m_serverAddress,0,sizeof(m_serverAddress));
-        m_serverAddress.sin_family = AF_INET;
-        m_serverAddress.sin_port = htons(port);//将一个无符号短整型的主机数值转换为网络字节顺序，即大尾顺序(big-endian)
-        m_serverAddress.sin_addr.s_addr = inet_addr(ip.c_str());//net_addr方法可以转化字符串，主要用来将一个十进制的数转化为二进制的数，用途多于ipv4的IP转化。
-        //3.bind()绑定
-        //参数一：0的返回值（socket_fd）
-        //参数二：(struct sockaddr*)&addr 前面结构体，即地址
-        //参数三: addr结构体的长度
-        int bind_fd=bind(m_sockfd,(struct sockaddr*)&m_serverAddress,sizeof(m_serverAddress));
-        if(bind_fd<0)
-        {
-            std::cerr<<"服务端bind绑定失败"<<std::endl;
-            return false;
-        }
-        else
-        {
-            
-            std::cerr<<"服务端bind绑定成功"<<std::endl;
-        }
-        
-        //4.监听客户端listen()函数
-    //参数二：进程上限，一般小于30
-        int listen_fd=listen(m_sockfd,30);
-        if(listen_fd<0)
-        {
-            std::cerr<<"服务端listen error"<<std::endl;
-            return false;
-        }
-        m_isonline=true;
-        m_clientNum=0;
-        return true;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-        return false;
-    }
-    
-   
-}
-
-bool Server::Accepted()
-{
-    try
-    {
-        //5.等待客户端的连接accept()，返回用于交互的socket描述符
-        /* code */
-        memset(&m_clientAddress,0,sizeof(m_clientAddress));
-        socklen_t clientAddressLength=sizeof(m_clientAddress);
-        descript_socket des_socket;
-        des_socket.socketfd=accept(m_sockfd,(struct sockaddr*)&m_clientAddress,&clientAddressLength);
-        des_socket.id=m_clientNum;
-        des_socket.ip=inet_ntoa(m_clientAddress.sin_addr);
-        newSocket.emplace_back(des_socket);
-        std::cerr << "服务端accept client[ id:" << newSocket[m_clientNum].id<< 
-                        " ip:" << newSocket[m_clientNum].ip << 
-                    " handle:" << newSocket[m_clientNum].socketfd << " ]" << std::endl;
-        if(newSocket[m_clientNum].socketfd<0)
-        {
-            std::cerr<<"服务端newSocket"<<"clientNum="<<m_clientNum<<"accept失败"<<std::endl;
-        }
-         std::thread t(&Server::AcceptTask,this,newSocket[m_clientNum]);
-      
-       
-        
-        m_isonline=true;
-        m_clientNum++;
-        return true;
-
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-        return false;
-    }
-    
-    
-}
-std::vector<descript_socket> Server::getMessage()
-{  
- 
-        /* code */
-          std::lock_guard<std::mutex> guard(m_mutex);
-            return Message; 
-
-    
-
+    delete[] m_recvBuf;
+    delete[]m_sendBuf;
+    close(m_socketfd);
 
 }
-bool Server::Send(std::string msg,int id)
+bool Server::start()
 {
-    try
-    {
-        /* code */
-         int Sendfd=send(newSocket[id].socketfd,msg.c_str(),sizeof(msg),0);
-            if(Sendfd<0)
-            {
-                std::cerr<<"服务端Sendfd<0，send失败"<<std::endl;
-                return false;
-            }
-            return true;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-        return false;
-    }
-    
-  
-}
-std::string Server::get_ip_addr(int id)
-{
-	return newSocket[id].ip;
-}
+    bool ret=false;
+    //1.创建socket
 
-bool Server::is_online() 
-{
-	return m_isonline;
-}
-
-void Server::detach(int id)
-{
-	close(newSocket[id].socketfd);
-	newSocket[id].ip = "";
-	newSocket[id].id = -1;
-	newSocket[id].message = "";
-} 
-
-void Server::closed() 
-{
-   close(m_sockfd);
-}
-int Server::get_last_closed_sockets()
-{
-	return Server::m_last_closed;
-}
-void Server::clean(int id)
-{
+  int m_socketfd=socket(AF_INET,SOCK_STREAM,0);
+  // AF_INET 表示采用TCP/IP协议族
+	// SOCK_STREAM 表示采用TCP协议
+	// 0是通常的默认情况
 	
-	memset(msg, 0, MAXPACKETSIZE);
-}
+  if(m_socketfd<0)
+  {
+      std::cerr<<"服务端socket创建失败，m_socketfd="<<m_socketfd<<std::endl;
+  }
+  else
+  {
+       std::cerr<<"服务端socket创建成功，m_socketfd="<<m_socketfd<<std::endl;
+      
+  }
+  //2.准备通讯地址（必须是服务器的）的IP
+  memset(&m_serverAddress,0,sizeof(m_serverAddress));
+  m_serverAddress.sin_family=AF_INET;
+  m_serverAddress.sin_addr.s_addr=inet_addr("0.0.0.0"); ;//net_addr方法可以转化字符串，主要用来将一个十进制的数转化为二进制的数，用途多于ipv4的IP转化。INADDR_ANY; //inet_addr("0.0.0.0"); 
+  m_serverAddress.sin_port=htons(8888);
+//3.bind()绑定
+//参数一：0的返回值（socket_fd）
+//参数二：(struct sockaddr*)&addr 前面结构体，即地址
+//参数三: addr结构体的长度
+    auto m=bind(m_socketfd,(struct sockaddr*)&m_serverAddress,sizeof(sockaddr));
+    if(m<0)
+    {
+        std::cerr<<"服务端bind绑定失败"<<std::endl;
+    }
+    else
+    {
+    /* code */
+    std::cerr<<"服务端bind绑定成功"<<std::endl;
+    }
+    auto k=listen(m_socketfd,100);
+    if(k<0)
+    {
+    std::cerr<<"服务端bind绑定失败"<<std::endl;
+    }
+    else
+    {
 
+    std::cerr<<"服务端bind绑定成功"<<std::endl;
+    }
+    memset(&m_clientAddress,0,sizeof(m_clientAddress));
+    int length=sizeof(m_clientAddress);
+    int acceptfd=accept(m_socketfd,(sockaddr*)&m_clientAddress,(socklen_t*)&length);
+    std::cerr<<"acceptfd="<<acceptfd<<std::endl;
+//sprintf(m_sendBuf,"%s", "这里是服务端"); // 将客户端的IP地址保存下来
+    std::string msg="这里是服务端，收到请回答";
+    while(1)
+    {
+        this->serverSend(msg,acceptfd);
+        //auto m= send(acceptfd,msg.c_str(),strlen(msg.c_str())+1,0);
+        //std::cerr<<"sendfd="<<m<<std::endl;
+        //auto n= recv(acceptfd,m_recvBuf,100,0);
+    // std::string s=m_recvBuf;
+        //std::cerr<<"recvfd="<<n<<std::endl;
+        //std::cerr<<"服务端m_recvBuf="<<m_recvBuf<<std::endl;
+        std::string recvmsg;
+        this->serverRecv(recvmsg,acceptfd);
+         ret=true;
+    }
+   return ret;
+}
+bool Server::serverSend(std::string &msg, int acceptfd)
+{
+    bool ret=false;
+   int m= send(acceptfd,msg.c_str(),strlen(msg.c_str())+1,0);
+   if(m<0)
+   {
+       std::cerr<<"服务端send失败"<<std::endl;
+   }
+   else
+   {
+       std::cerr<<"服务端send发送长度为"<<m<<std::endl;
+        ret=true;
+   } 
+   return ret;
+}
+bool Server::serverRecv(std::string &msg,int acceptfd)
+{
+    bool ret=false;
+
+	std::vector<char> recvBuff;
+    int m=recv(acceptfd,m_recvBuf,strlen(m_recvBuf)+1,0);
+    if(m<0)
+   {
+       std::cerr<<"服务端recv失败"<<std::endl;
+   }
+   else
+   {
+       std::cerr<<"服务端recv接受长度为"<<m<<std::endl;
+       int vectorsize=recvBuff.size();
+       
+        msg=std::string(m_recvBuf);
+       std::cerr<<"服务端recv的msg="<<msg<<std::endl;
+       ret=true;
+   }
+ return ret;
+}

@@ -4,99 +4,58 @@ Client::Client(/* args */)
     m_socketfd = -1;
 	m_port = 0;
 	m_address = "";
+    m_sendBuf=new char[1024*1024*10];
+    m_recvBuf=new char[1024*1024*10];
 }
 
 Client::~Client()
 {
-    exit();
+  
+   delete[]m_sendBuf;
+   delete[]m_recvBuf;
+   close(m_socketfd);
 }
-bool Client::Setup(std::string ip, int port,int protocolType)
+bool Client::start()
 {
-    if(m_socketfd==-1)
-    {
-        m_socketfd=socket(AF_INET,(IPPROTO_TCP == protocolType)? SOCK_STREAM : SOCK_DGRAM,protocolType);
-        if(m_socketfd<0)
-        {
-            std::cerr<<"客户端socket 创建失败"<<std::endl;
-        }
-        if((signed)inet_addr(ip.c_str()) == -1)
-        {
-            struct hostent *hostent;
-            struct in_addr **addr_list;
-            if((hostent = gethostbyname(ip.c_str() ) ) == NULL)
-            {
-                herror("客户端gethostbyname");
-                std::cerr<<"客户端Failed to resolve hostname\n";
-                return false;
-            }
-            addr_list = (struct in_addr **) hostent->h_addr_list;
-            for(int i = 0; addr_list[i] != NULL; i++)
-            {
-                m_server.sin_addr = *addr_list[i];
-                break;
-            }
-        }
-        else
-        {
-            m_server.sin_addr.s_addr = inet_addr( ip.c_str() );
-        }
-        m_server.sin_family = AF_INET;
-        m_server.sin_port = htons( port );
-        if (connect(m_socketfd , (struct sockaddr *)&m_server , sizeof(m_server)) < 0)
-        {
-            perror("客户端connect failed. Error");
-            return false;
-        }
-        return true;
-    }
+       //1.创建socket
+ bool ret =false;
+  int m_socketfd=socket(AF_INET,SOCK_STREAM,0);
+  // AF_INET 表示采用TCP/IP协议族
+	// SOCK_STREAM 表示采用TCP协议
+	// 0是通常的默认情况
+	
+  if(m_socketfd<0)
+  {
+      std::cerr<<"客户端socket创建失败，m_socketfd="<<m_socketfd<<std::endl;
+  }
+  else
+  {
+       std::cerr<<"客户端socket创建成功，m_socketfd="<<m_socketfd<<std::endl;
+      
+  }
+  m_ClientAdress.sin_family=AF_INET;
+  m_ClientAdress.sin_addr.s_addr=inet_addr("192.168.69.246");
+  m_ClientAdress.sin_port=htons(8888);
+  int ret1=connect(m_socketfd,(sockaddr*)&m_ClientAdress,sizeof(m_ClientAdress));
+if(ret1<0)
+{
+     std::cerr<<"客户端connect创建失败，m_socketfd="<<m_socketfd<<std::endl;
 }
-bool Client::Send(std::string data)
+else
 {
-	if(m_socketfd != -1) 
-	{
-		if( send(m_socketfd , data.c_str() , strlen( data.c_str() ) , 0) < 0)
-		{
-			std::cerr << "客户端Send failed : " << data << std::endl;
-			return false;
-		}
-	}
-	else
-		return false;
-	return true;
+    
+    std::cerr<<"客户端connect创建成功，m_socketfd="<<m_socketfd<<std::endl;
 }
-
-std::string Client::receive(int size)
-{
-  	char buffer[size];
-	memset(&buffer[0], 0, sizeof(buffer));
-
-  	std::string reply;
-	if( recv(m_socketfd , buffer , size, 0) < 0)
-  	{
-	    	std::cerr << "客户端receive failed!" << std::endl;
-		return nullptr;
-  	}
-	buffer[size-1]='\0';
-  	reply = buffer;
-  	return reply;
-}
-
-std::string Client::read()
-{
-  	char buffer[1] = {};
-  	std::string reply;
-  	while (buffer[0] != '\n') {
-    		if( recv(m_socketfd , buffer , sizeof(buffer) , 0) < 0)
-    		{
-      			std::cerr << "客户端receive failed!" <<std:: endl;
-			return nullptr;
-    		}
-		reply += buffer[0];
-	}
-	return reply;
-}
-
-void Client::exit()
-{
-    close( m_socketfd );
+memset(m_recvBuf,0,sizeof(m_recvBuf));
+memset(m_sendBuf,0,sizeof(m_sendBuf));
+  while(1)
+  {
+      recv(m_socketfd,m_recvBuf,100,0);
+     
+      std::string msg="这里是客户端，收到请回答";
+      send(m_socketfd,msg.c_str(),strlen(msg.c_str())+1,0);
+      std::cout<<"msg="<<m_recvBuf<<std::endl;
+      ret=true;
+  }
+  return ret;
 }
