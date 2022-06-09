@@ -19,7 +19,9 @@ class Client
 public:
     Client(/* args */);
     ~Client();
-   bool start();
+    bool start();
+    int recvMsg(int fd,   std::string &recvmsg, int size);
+    int SendMsg(int fd, std::string sendmsg, int size);
 private:
     int m_socketfd;
     std::string m_address;
@@ -27,6 +29,8 @@ private:
     struct sockaddr_in m_ClientAdress;
     char* m_sendBuf;
     char* m_recvBuf;
+    int writeMsg(int fd, const char* msg, int size);
+    int readMsg(int fd,   char* msg, int size);
 };
 
 

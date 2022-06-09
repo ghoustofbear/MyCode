@@ -2,7 +2,8 @@
 cmake .
 make
 ./client
-rm cmake_install.cmake
-rm CMakeCache.txt
+rm -f cmake_install.cmake
+rm -f CMakeCache.txt
 rm -rf CMakeFiles
 rm Makefile
+rm client
