@@ -1,3 +1,0 @@
-/home/lx/MyCodes/my-codes/C++/Others/Socket/Client/CMakeFiles/rebuild_cache.dir
-/home/lx/MyCodes/my-codes/C++/Others/Socket/Client/CMakeFiles/edit_cache.dir
-/home/lx/MyCodes/my-codes/C++/Others/Socket/Client/CMakeFiles/client.dir

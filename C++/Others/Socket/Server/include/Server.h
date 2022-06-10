@@ -37,10 +37,9 @@ private:
     /* data */
     
 
-    void strToChar(std::string str);
     int writeMsg(int fd, const char* msg, int size);
     int readMsg(int fd,   char* msg, int size);
-    int createSocket(std::string ip,u_int32_t port);
+    int createServer(std::string ip,u_int32_t port);
     int acceptSocket(int socketfd);
 public:
     Server(/* args */);

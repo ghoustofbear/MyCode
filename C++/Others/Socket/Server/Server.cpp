@@ -16,7 +16,7 @@ Server::~Server()
 }
 //1.创建socket
 //返回socketfd
-int  Server::createSocket(std::string ip,u_int32_t port)
+int  Server::createServer(std::string ip,u_int32_t port)
 {
     int  socketfd=socket(AF_INET,SOCK_STREAM,0);
   // AF_INET 表示采用TCP/IP协议族
@@ -97,11 +97,10 @@ bool Server::start()
 {
     bool ret=false;
   
-    int socketfd=createSocket("0.0.0.0",9090);
+    int socketfd=createServer("0.0.0.0",9090);
     int acceptfd=acceptSocket(socketfd);
     
-    while(1)
-    {
+   
         
 
         std::string msg="这里是服务端，收到请回答";
@@ -110,8 +109,8 @@ bool Server::start()
       std::string recvmessage;
       this->recvMsg(acceptfd,recvmessage,recvmessage.size());
       std::cerr<<"recvmessage="<<recvmessage<<std::endl;
-    ret=true;
-    }
+      ret=true;
+    
    return ret;
 }
 

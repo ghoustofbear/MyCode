@@ -1,25 +1,19 @@
 #include"Client.h"
 Client::Client(/* args */)
 {
-    m_socketfd = -1;
-	m_port = 0;
-	m_address = "";
-    m_sendBuf=new char[1024*1024*10];
-    m_recvBuf=new char[1024*1024*10];
+
+
 }
 
 Client::~Client()
 {
   
-   delete[]m_sendBuf;
-   delete[]m_recvBuf;
-   close(m_socketfd);
+
+
 }
-bool Client::start()
+int Client::createClient(std::string ip,u_int32_t port)
 {
-       //1.创建socket
- bool ret =false;
-  int m_socketfd=socket(AF_INET,SOCK_STREAM,0);
+ int m_socketfd=socket(AF_INET,SOCK_STREAM,0);
   // AF_INET 表示采用TCP/IP协议族
 	// SOCK_STREAM 表示采用TCP协议
 	// 0是通常的默认情况
@@ -27,41 +21,43 @@ bool Client::start()
   if(m_socketfd<0)
   {
       std::cerr<<"客户端socket创建失败，m_socketfd="<<m_socketfd<<std::endl;
+      return -1;
   }
   else
   {
        std::cerr<<"客户端socket创建成功，m_socketfd="<<m_socketfd<<std::endl;
       
   }
-  m_ClientAdress.sin_family=AF_INET;
-  m_ClientAdress.sin_addr.s_addr=inet_addr("192.168.69.246");
-  m_ClientAdress.sin_port=htons(9090);
-  int ret1=connect(m_socketfd,(sockaddr*)&m_ClientAdress,sizeof(m_ClientAdress));
+  struct sockaddr_in ClientAdress;
+  ClientAdress.sin_family=AF_INET;
+  ClientAdress.sin_addr.s_addr=inet_addr(ip.c_str());
+  ClientAdress.sin_port=htons(port);
+  int ret1=connect(m_socketfd,(sockaddr*)&ClientAdress,sizeof(ClientAdress));
 if(ret1<0)
 {
      std::cerr<<"客户端connect创建失败，m_socketfd="<<m_socketfd<<std::endl;
+     return -1;
 }
 else
 {
     
     std::cerr<<"客户端connect创建成功，m_socketfd="<<m_socketfd<<std::endl;
 }
-memset(m_recvBuf,0,sizeof(m_recvBuf));
-memset(m_sendBuf,0,sizeof(m_sendBuf));
-  while(1)
-  {
-    std::string msg="这里是客户端，收到请回答";
-      // recv(m_socketfd,m_recvBuf,100,0);
-     
-      // std::string msg="这里是客户端，收到请回答";
-      // send(m_socketfd,msg.c_str(),strlen(msg.c_str())+1,0);
-      // std::cout<<"msg="<<m_recvBuf<<std::endl;
-      this->SendMsg(m_socketfd,msg,msg.size());
-     std::string recvmessage;
-      this->recvMsg(m_socketfd,recvmessage,recvmessage.size());
-      std::cerr<<"recvmessage="<<recvmessage<<std::endl;
-      ret=true;
-  }
+return m_socketfd;
+}
+bool Client::start()
+{
+       //1.创建socket
+ bool ret =false;
+ int socketfd=createClient("192.168.69.246",9090);
+ std::string recvmessage;
+ std::thread recvthread(&Client::recvMsg,this,socketfd,std::ref(recvmessage),recvmessage.size());
+ recvthread.detach();
+ std::string msg="这里是客户端，收到请回答";
+ std::thread sendthread(&Client::SendMsg,this,socketfd,msg,msg.size());
+ sendthread.detach();
+std::cout << "主线程的线程id为：" << std::this_thread::get_id() << std::endl;
+ 
   return ret;
 }
 /*
@@ -181,6 +177,7 @@ int Client::recvMsg(int fd,  std::string &recvmsg, int size)
     }
     buf[len] = '\0';
     recvmsg = buf;
+    std::cerr<<"recvmsg="<<recvmsg<<std::endl;
     return ret;
 
 }
