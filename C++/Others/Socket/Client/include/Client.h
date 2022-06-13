@@ -25,7 +25,7 @@ public:
     int recvMsg(int fd,   std::string &recvmsg, int size);
     int SendMsg(int fd, std::string sendmsg, int size);
 private:
-    
+    void test(std::string testmsg);
     int createClient(std::string ip,u_int32_t port);
     int writeMsg(int fd, const char* msg, int size);
     int readMsg(int fd,   char* msg, int size);

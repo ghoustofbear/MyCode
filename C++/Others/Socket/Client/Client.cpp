@@ -51,13 +51,25 @@ bool Client::start()
  bool ret =false;
  int socketfd=createClient("192.168.69.246",9090);
  std::string recvmessage;
- std::thread recvthread(&Client::recvMsg,this,socketfd,std::ref(recvmessage),recvmessage.size());
- recvthread.detach();
- std::string msg="这里是客户端，收到请回答";
- std::thread sendthread(&Client::SendMsg,this,socketfd,msg,msg.size());
- sendthread.detach();
-std::cout << "主线程的线程id为：" << std::this_thread::get_id() << std::endl;
+  std::string msg="这里是客户端，收到请回答";
+  std::thread second(&Client::test,this,msg);
+  if(second.joinable())
+  {
+      second.detach();
+  }
  
+ std::thread recvthread(&Client::recvMsg,this,socketfd,std::ref(recvmessage),recvmessage.size());
+ // recvthread.join();
+ if(recvthread.joinable())
+ {
+     recvthread.join();
+ }
+  
+//  std::thread sendthread(&Client::SendMsg,this,socketfd,msg,msg.size());
+//  sendthread.detach();
+std::cout << "主线程的线程id为：" << std::this_thread::get_id() << std::endl;
+//recvMsg(socketfd,recvmessage,recvmessage.size());
+SendMsg(socketfd,msg,msg.size());
   return ret;
 }
 /*
@@ -177,8 +189,11 @@ int Client::recvMsg(int fd,  std::string &recvmsg, int size)
     }
     buf[len] = '\0';
     recvmsg = buf;
-    std::cerr<<"recvmsg="<<recvmsg<<std::endl;
+    std::cout<<"recvmsg="<<recvmsg<<std::endl;
     return ret;
 
 }
-
+void Client::test(std::string testmsg)
+{
+    std::cout<<"进入测试线程内部了"<<std::endl;
+}

@@ -25,7 +25,7 @@ public:
 int main(int argc,char const *argv[])
 {
     
-    std::string n="A";
+    std::string n="AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
     Solution s;
 
      auto result=s.findRepeatedDnaSequences(n);

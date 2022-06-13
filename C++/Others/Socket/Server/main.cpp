@@ -8,6 +8,9 @@ Server server;
 int main(int argc, char **argv)
 {
 
-server.start();
+
+    server.start();
+
+
 	
 }
