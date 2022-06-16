@@ -19,6 +19,7 @@
 * [deque](C++/Others/deque.md)
 * [set](C++/Others/set.md)
 * [unorded_set](C++/Others/unordered_set.md)
+* [快速排序法](C++/Others/Sort/快速排序算法.md)
 
 ## Leetcode
 
