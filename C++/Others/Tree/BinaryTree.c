@@ -1,5 +1,6 @@
 #include"BinaryTree.h"
 #include <stdio.h>
+#include<stdlib.h>
 void insert(BinaryTree* tree, int value)
 {
   
@@ -9,7 +10,7 @@ void insert(BinaryTree* tree, int value)
     node->right=NULL;
     if(tree->root==NULL)//判断树是不是空树
     {
-        tree->root=tree;
+        tree->root=node;
     }
     else
     {
@@ -49,3 +50,5 @@ void insert(BinaryTree* tree, int value)
     }
     return ;
 }
+
+  
